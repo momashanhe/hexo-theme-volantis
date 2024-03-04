@@ -39,7 +39,7 @@ cdn_system:
   system_config:
     # 自定义配置 使用 "theme/_cdn.yml" 中的名称作为配置项的键
     custom:
-      busuanzi: https://npm.elemecdn.com/penndu@1.0.0/bsz.js  # 杜老师友情赞助
+      busuanzi: https://npm.elemecdn.com/penndu@1.0.0/bsz.js # 杜老师友情赞助
       #volantis_style: /css/style.css
       #volantis_app: /js/app.js
 
@@ -103,7 +103,7 @@ csp:
     child-src https:;
     script-src 'self' https: 'unsafe-inline' *;
     style-src 'self' https: 'unsafe-inline' *;
-  "
+    "
   # 可以使用自动程序替换默认的 'unsafe-inline' 和 * 生成更严格的内容安全策略.
   # 另可以参考官网之前的 gulp 方案.（CSP Level 3 ：Safari 15.4+ Chrome 59+ Firefox 58+ Edge 79+）
   # gulpfile.js https://gist.github.com/MHuiG/e50ce64fd94f641f679a0736fef925e4
@@ -292,6 +292,7 @@ article:
           #     url:                # 原文出处 - 链接
           #############################
           rules:
+            # 还能自行添加更多
             type1: 
               text: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh#" target="_blank">CC BY-NC-SA 4.0</a>
               desc: 署名-非商业性使用-相同方式共享 4.0 国际。
@@ -310,7 +311,6 @@ article:
             type6:
               text: 允许付费转载
               desc: 您可以联系作者通过付费方式获得授权。
-            # 还能自行添加更多
       # ----------------
       # 打赏组件 (for layout: post)
       donate:
@@ -329,12 +329,12 @@ article:
       # 文章创建日期
       date:
         icon: fa-solid fa-calendar-alt
-        title: '发布于：'
+        title: '' # 发布于：
         format: 'll' # 日期格式 http://momentjs.com/docs/
       # 文章更新日期
       updated:
         icon: fa-solid fa-edit
-        title: '更新于：'
+        title: '' # 更新于：
         format: 'll' # 日期格式 http://momentjs.com/docs/
       # 文章分类
       category:
@@ -342,15 +342,15 @@ article:
       # 文章浏览计数
       counter:
         icon: fa-solid fa-eye
-        unit: '次浏览'
+        unit: '次' # 次浏览
       # waline 文章评论数量
       walinecount:
         icon: fa-solid fa-comment-dots
-        desc: '条评论' # 条评论
+        desc: '条' # 条评论
       # artalk 文章评论数量
       artalkcount:
         icon: fa-solid fa-comment-dots
-        desc: '条评论' # 条评论
+        desc: '条' # 条评论
       # 文章字数和阅读时长
       wordcount:
         icon_wordcount: fa-solid fa-keyboard
@@ -361,7 +361,7 @@ article:
       # 分享
       share:
         - id: qq
-          img:  volantis-static/media/org.volantis/logo/128/qq.png #  https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png
+          img: volantis-static/media/org.volantis/logo/128/qq.png #  https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png
         - id: qzone
           img: volantis-static/media/org.volantis/logo/128/qzone.png #  https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png
         - id: weibo
@@ -377,7 +377,7 @@ article:
 comments:
   title: <i class='fa-solid fa-comments'></i> 评论
   subtitle:
-  service: giscus
+  service: # giscus
   # 可选评论系统 #
 
   # artalk
@@ -546,7 +546,6 @@ comments:
     visitStat: true # 是否显示文章阅读数
     # https://discuss.js.org/Quick-Start.html#path
 
-
 ############################### Comments ############################### > end
 
 ############################### Sidebar ############################### > start
@@ -599,11 +598,11 @@ sidebar:
     # category widget
     category:
       class: category
-      display: [desktop] # [desktop, mobile]
+      display: [desktop, mobile] # [desktop, mobile]
       header:
         icon: fa-solid fa-folder-open
         title: 文章分类
-        url: /blog/categories/
+        url: /categories/
     # ---------------------------------------
     # tagcloud widget
     tagcloud:
@@ -612,7 +611,7 @@ sidebar:
       header:
         icon: fa-solid fa-tags
         title: 热门标签
-        url: /blog/tags/
+        url: /tags/
       min_font: 14
       max_font: 24
       color: true
@@ -640,11 +639,6 @@ sidebar:
           enable: true
           text: '文章数目：'
           unit: '篇'
-        runtime:
-          enable: false
-          data: '2020/01/01'    # 填写建站日期
-          text: '已运行时间：'
-          unit: '天'
         wordcount:
           enable: false
           text: '本站总字数：'   # 需要启用 wordcount
@@ -657,6 +651,11 @@ sidebar:
           sitepv:
             text: '本站总访问量：'
             unit: '次'
+        runtime:
+          enable: false
+          data: '2020/01/01'    # 填写建站日期
+          text: '已运行时间：'
+          unit: '天'
         lastupd:
           enable: true
           friendlyShow: true    # 更友好的时间显示
@@ -671,20 +670,20 @@ sidebar:
         icon: fa-solid fa-clock WISTERIA
         title: 最近更新
     # ---------------------------------------
-    # Artalk widget
+    # artalk widget
     artalk:
       class: artalk
       stickys: true
       display: [desktop, mobile]
     # ---------------------------------------
-    # Memos widget
+    # memos widget
     memos_carousel:
       class: memos_carousel
       display: [desktop, mobile]
       header:
         icon: fa-solid fa-volume-high
         title: 说说
-        url: /blog/memos/ # 说说页面的地址
+        url: /memos/ # 说说页面的地址
       url: 'https://s.dusays.com/' # 替换城自己的域名，也可以用杜老师的平台托管
       limit: '10' # 展示数量限制
       creatorId: '1' # 替换成自己的用户的ID
@@ -692,7 +691,63 @@ sidebar:
       image: 'fa-solid fa-image' # 图片替换成图标
       link: 'fa-solid fa-link' # 链接替换成图标
       placeholder: '说说加载中...' # 占位符
-
+    # ---------------------------------------
+    # text widget
+    text:
+      class: text
+      display: [desktop] # [desktop, mobile]
+      header:
+        icon: fab fa-github
+        title: 点个赞吧
+        url: https://github.com/
+      content:
+        - '您的赞对我来说很重要，如果您喜欢本主题，希望能够给下面的项目点个赞来支持一下。'
+        - '[<img src="https://logo.png" height="50px">](https://github.com/)'
+        - '[<img src="https://logo.png" height="50px">](https://github.com/)'
+        - '[<img src="https://logo.png" height="50px">](https://github.com/)'
+    # ---------------------------------------
+    # list widget
+    list:
+      class: list
+      display: [desktop, mobile] # [desktop, mobile]
+      header:
+        icon: fa-solid fa-file
+        title: 文章链接
+        url: /
+      rows:
+        - name: 测试文章
+          url: /
+    # ---------------------------------------
+    # grid widget
+    grid:
+      class: grid
+      display: [desktop, mobile]
+      header:
+        icon: fa-solid fa-headset
+        title: 联系开发者
+        url: https://github.com/volantis-x/hexo-theme-volantis
+      fixed: true # 固定宽度
+      rows:
+        - name: 反馈
+          icon: fa-solid fa-bug
+          url: https://github.com/volantis-x/hexo-theme-volantis/issues/
+        - name: 疑问求助
+          icon: fa-solid fa-question-circle
+          url: https://github.com/volantis-x/hexo-theme-volantis/issues/
+        - name: 提个建议
+          icon: fa-solid fa-lightbulb
+          url: https://github.com/volantis-x/hexo-theme-volantis/issues/
+    # ---------------------------------------
+    # page widget
+    page:
+      class: page
+      display: [desktop, mobile]
+      header:
+        icon: fa-solid fa-headset
+        title: 联系开发者
+        url: https://github.com/volantis-x/hexo-theme-volantis
+      pid: pid
+      content: excerpt # excerpt, more, content
 ############################### Sidebar ############################### > end
 
 
@@ -716,7 +771,7 @@ tag_plugins:
 
 ############################### Site Footer ############################### > start
 site_footer:
-  # layout of footer: [aplayer, social, license, info, copyright]
+  # layout of footer: [aplayer, social, source, license, analytics, info, copyright]
   layout: [aplayer, social, license, info, copyright]
   social:
     - icon: #fa-solid fa-rss
@@ -1014,7 +1069,7 @@ plugins:
   gitter:
     room: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-  # swiper
+  # Swiper
   # https://www.swiper.com.cn/
   swiper:
     enable: true

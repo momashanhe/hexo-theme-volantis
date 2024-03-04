@@ -148,10 +148,10 @@ let SearchService = (() => {
       container: '#algolia-pagination',
       totalPages: 5,
       templates: {
-        first: '<i class="fas fa-angle-double-left"></i>',
-        last: '<i class="fas fa-angle-double-right"></i>',
-        previous: '<i class="fas fa-angle-left"></i>',
-        next: '<i class="fas fa-angle-right"></i>'
+        first: '<i class="fa-solid fa-angle-double-left"></i>',
+        last: '<i class="fa-solid fa-angle-double-right"></i>',
+        previous: '<i class="fa-solid fa-angle-left"></i>',
+        next: '<i class="fa-solid fa-angle-right"></i>'
       }
     })
 

@@ -10,14 +10,6 @@
         </div>
       <% } %>
 
-      <% if (item.type.runtime.enable) { %>
-        <div class="webinfo-item">
-          <div><%= item.type.runtime.text %></div>
-          <div id="webinfo-runtime-count"></div>
-        </div>
-      <% } %>
-
-
       <% if (item.type.wordcount.enable && theme.plugins.wordcount.enable) { %>
         <div class="webinfo-item">
           <div><%= item.type.wordcount.text %></div>
@@ -43,6 +35,13 @@
             </span> 
             <%= item.type.visitcounter.sitepv.unit %>
           </div>
+        </div>
+      <% } %>
+
+      <% if (item.type.runtime.enable) { %>
+        <div class="webinfo-item">
+          <div><%= item.type.runtime.text %></div>
+          <div id="webinfo-runtime-count"></div>
         </div>
       <% } %>
 

@@ -1,8 +1,8 @@
 /**
- * friends.js v1 | https://github.com/xaoxuu/hexo-theme-stellar/
+ * contributors.js v1 | https://github.com/xaoxuu/hexo-theme-stellar/
  * 格式与官方标签插件一致使用空格分隔，中括号内的是可选参数（中括号不需要写出来）
  *
- * {% friends [only:group1] [not:group2] %}
+ * {% contributors [only:group1] [not:group2] %}
  */
 
 'use strict';
@@ -23,13 +23,13 @@ hexo.extend.tag.register('contributors', function(args) {
       args.not = args.not.split(',');
     }
   }
-  var friends = hexo.locals.get('data').contributors;
-  if (friends == undefined) {
-    friends = {};
+  var contributors = hexo.locals.get('data').contributors;
+  if (contributors == undefined) {
+    contributors = {};
   }
   var api = args.api;
   if (api) {
-    friends = {
+    contributors = {
       group: {
         api: api
       }
@@ -59,13 +59,13 @@ hexo.extend.tag.register('contributors', function(args) {
       return '';
     }
   }
-  for (let groupId of Object.keys(friends)) {
+  for (let groupId of Object.keys(contributors)) {
     function f() {
       if (args.not && args.not.includes(groupId)) {
         return;
       }
-      if (groupId in friends) {
-        let group = friends[groupId];
+      if (groupId in contributors) {
+        let group = contributors[groupId];
         if (group.title || group.description) {
           el += groupHeader(group);
         }
