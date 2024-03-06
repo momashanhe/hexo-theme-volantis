@@ -6,6 +6,9 @@
     <% if (site.data.friends){ %>
       <% getList(site.data.friends).forEach((group, i) => { %>
         <div class='friends-group'>
+          <h3 class='friend-header'>
+            <%- group.title %>
+          </h3>
           <% if (group.description) { %>
             <%- markdown(group.description) %>
           <%} %>
@@ -13,8 +16,7 @@
             <div class='friend-content'>
               <% getList(group.items).forEach(function(item){ %>
                 <% if (item.url && item.title) { %>
-                  <a class='friend-card'
-                    target="_blank" rel="external noopener noreferrer" href="<%- url_for(item.url || '/') %>">
+                  <a class='friend-card' target="_blank" rel="external noopener noreferrer" href="<%- url_for(item.url || '/') %>">
                     <div class='friend-left'>
                       <% if (item.avatar) { %>
                         <img class='avatar' src='<%- item.avatar || (theme.plugins.lazyload && theme.plugins.lazyload.loadingImg) %>'/>
@@ -54,7 +56,6 @@
         </div>
       <% }) %>
     <% } %>
-    <br><br>
     <%- page.more %>
     <%- partial('_partial/meta',{post: page, position: 'bottom'}) %>
   </article>

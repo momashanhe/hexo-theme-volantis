@@ -10,18 +10,18 @@
 hexo.extend.tag.register('friends', function(args) {
   args = hexo.args.map(args, ['only', 'not', 'repo', 'api']);
   if (args.only) {
-    if(/::/g.test(args.only)){
+if(/::/g.test(args.only)){
       args.only = args.only.split('::');
     }else{
-      args.only = args.only.split(',');
-    }
+    args.only = args.only.split(',');
   }
+}
   if (args.not) {
-    if(/::/g.test(args.not)){
+if(/::/g.test(args.not)){
       args.not = args.not.split('::');
     }else{
-      args.not = args.not.split(',');
-    }
+    args.not = args.not.split(',');
+  }
   }
   var friends = hexo.locals.get('data').friends;
   if (friends == undefined) {
@@ -49,10 +49,14 @@ hexo.extend.tag.register('friends', function(args) {
   }
   function cell(friend) {
     if (friend.url && friend.title) {
-      var cell = '<div class="user-card">';
+      var cell = '<div class="users-card">';
       cell += '<a class="card-link" target="_blank" rel="external noopener noreferrer" href="' + friend.url + '">';
+      cell += '<img src="' + (friend.screenshot || ('https://image.thum.io/get/width/1024/crop/768/' + friend.url)) + '" onerror="errorImgCover(this)"/>';
+      cell += '<div class="info">';
       cell += '<img src="' + (friend.avatar || hexo.theme.config.default.avatar) + '" onerror="errorImgAvatar(this)"/>';
-      cell += '<div class="name"><span>' + friend.title + '</span></div>';
+      cell += '<span class="title">' + friend.title + '</span>';
+      cell += '<span class="desc">' + (friend.description || friend.url) + '</span>';
+      cell += '</div>';
       cell += '</a></div>'
       return cell;
     } else {

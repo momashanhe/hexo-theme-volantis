@@ -45,7 +45,7 @@ hexo.extend.tag.register('sites', function(args) {
       cell += '<a class="card-link" target="_blank" rel="external noopener noreferrer" href="' + site.url + '">';
       cell += '<img src="' + (site.screenshot || ('https://image.thum.io/get/width/1024/crop/768/' + site.url)) + '" onerror="errorImgCover(this)"/>';
       cell += '<div class="info">';
-      cell += '<img src="' + (site.avatar || hexo.theme.config.default.link) + '" onerror="errorImgAvatar(this)"/>';
+      cell += '<img src="' + (site.avatar || hexo.theme.config.default.avatar) + '" onerror="errorImgAvatar(this)"/>';
       cell += '<span class="title">' + site.title + '</span>';
       cell += '<span class="desc">' + (site.description || site.url) + '</span>';
       cell += '</div>';
