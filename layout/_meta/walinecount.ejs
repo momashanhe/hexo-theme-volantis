@@ -1,5 +1,5 @@
 <% if (theme.comments.service == 'waline' && theme.comments.waline.comment && page.comments !== false){ %>
-<div class="new-meta-item comments-count">
+<div class="new-meta-item comment">
   <% 
     let commentPath;
     let path = post.path || page.path;
@@ -16,16 +16,14 @@
     path = path.replaceAll('/index.html', '/').replaceAll('.html', '')
   %> 
   
-  <a href="<%- url_for(path) %>#comments">
+  <a class="notlink" href="<%- url_for(path) %>#comments">
     <i class="<%- theme.article.body.meta_library.walinecount.icon %> fa-fw"></i>
-    <p>
-      <span data-path="<%- url_for(path) %>" class="waline-comment-count">
-        <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
-      </span> 
-      <% if(theme.article.body.meta_library.walinecount.desc) { %> 
-        <span class="leancloud-comments-count">&nbsp;<%- theme.article.body.meta_library.walinecount.desc %></span> 
-      <% } %> 
-    </p>
+    <span data-path="<%- url_for(path) %>" class="waline-comment-count">
+      <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
+    </span> 
+    <% if(theme.article.body.meta_library.walinecount.desc) { %> 
+      <p><%- theme.article.body.meta_library.walinecount.desc %></p> 
+    <% } %> 
   </a>
 </div>
 <% } %>
