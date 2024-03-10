@@ -1,4 +1,9 @@
 <%- partial('_pre') %>
+<%
+if (!page.robots) {
+  page.robots = 'noindex,follow';
+}
+%>
 <div id="l_main" class='<%- page.sidebar == false ? ' no_sidebar' : '' %>'>
   <%- partial('_partial/article', {post: page, index: false}) %>
 </div>

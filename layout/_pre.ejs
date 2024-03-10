@@ -8,7 +8,9 @@ if (page.cover == undefined && theme.cover) {
     page.cover = theme.cover.display.others;
   }
 }
-if (is_home() || is_category() || is_archive() || is_tag() || page.layout == 'list') {
+if (is_home() || is_archive() || is_category() || is_tag()
+  || page.layout == 'category' || page.layout == 'tag' || page.layout == 'page'
+  || page.layout == 'group' || page.layout == 'list') {
   if (page.sidebar == undefined) {
     if (theme.sidebar.for_page.length == 0) {
       page.sidebar = [];

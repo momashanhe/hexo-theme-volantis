@@ -1,5 +1,10 @@
 <%- partial('_pre') %>
-<% page.comments = false; %>
+<%
+page.comments = false;
+if (!page.robots) {
+  page.robots = 'noindex,follow';
+}
+%>
 <div id="l_main" class='<%- page.sidebar == false ? ' no_sidebar' : '' %>'>
   <% if (site.pages && site.pages.length > 0) { %>
     <section class="post-list">
